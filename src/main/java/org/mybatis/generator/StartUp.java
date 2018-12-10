@@ -18,11 +18,12 @@ import org.mybatis.generator.internal.DefaultShellCallback;
  * 描述：
  * @since 1.9.10
  * @version 1.9.10
- * @作者：wanghuan
+ * @作者：BruceWang
  * @创建时间：2018年09月10日
  * @修改记录：
  */
 public class StartUp {
+	
     public static void main(String[] args) throws URISyntaxException {
         try {
             List<String> warnings = new ArrayList<String>();
