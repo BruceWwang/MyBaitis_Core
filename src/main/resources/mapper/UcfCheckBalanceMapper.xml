@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ucf.checkbalance.dao.UcfCheckBalanceMapper" >
+  <resultMap id="BaseResultMap" type="com.ucf.checkbalance.pojo.UcfCheckBalance" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="VOUCHER_NO" property="voucherNo" jdbcType="VARCHAR" />
+    <result column="CHECK_BALANCE_TYPE" property="checkBalanceType" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="VARCHAR" />
+    <result column="MERCHANT_ID" property="merchantId" jdbcType="VARCHAR" />
+    <result column="TRANS_AMOUNT" property="transAmount" jdbcType="DECIMAL" />
+    <result column="OUT_ORDER_NO" property="outOrderNo" jdbcType="VARCHAR" />
+    <result column="SEQ_NO" property="seqNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="SENIOR_PRODUCT_CODE" property="seniorProductCode" jdbcType="VARCHAR" />
+    <result column="TRANS_CUR" property="transCur" jdbcType="VARCHAR" />
+    <result column="ABSTRACT_NO" property="abstractNo" jdbcType="VARCHAR" />
+    <result column="ABSTRACT_CONTENT" property="abstractContent" jdbcType="VARCHAR" />
+    <result column="TRANS_STATUS" property="transStatus" jdbcType="VARCHAR" />
+    <result column="AUDIT_STATUS" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="AUDIT_REMARK" property="auditRemark" jdbcType="VARCHAR" />
+    <result column="SUBMIT_AUDITOR" property="submitAuditor" jdbcType="VARCHAR" />
+    <result column="AUDITOR" property="auditor" jdbcType="VARCHAR" />
+    <result column="TRADE_NO" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="EXCEPTION_MSG" property="exceptionMsg" jdbcType="VARCHAR" />
+    <result column="EXCEPTION_CODE" property="exceptionCode" jdbcType="VARCHAR" />
+    <result column="DATA_TYPE" property="dataType" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="SEND_STATUS" property="sendStatus" jdbcType="VARCHAR" />
+    <result column="IS_CAPITAL_CHANGE" property="isCapitalChange" jdbcType="VARCHAR" />
+    <result column="RECEIVE_USERNAME" property="receiveUsername" jdbcType="VARCHAR" />
+    <result column="RECEIVE_ACCOUNT_NO" property="receiveAccountNo" jdbcType="VARCHAR" />
+    <result column="RECEIVE_BANK" property="receiveBank" jdbcType="VARCHAR" />
+    <result column="RECEIVE_USEFOR" property="receiveUsefor" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="MERCHANT_ORDER_NO" property="merchantOrderNo" jdbcType="VARCHAR" />
+    <result column="SETTLE_SEQUENCE_NO" property="settleSequenceNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NAME" property="accountName" jdbcType="VARCHAR" />
+    <result column="CHANNEL_CODE" property="channelCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, VOUCHER_NO, CHECK_BALANCE_TYPE, ACCOUNT_TYPE, MERCHANT_ID, TRANS_AMOUNT, OUT_ORDER_NO, 
+    SEQ_NO, REMARK, SENIOR_PRODUCT_CODE, TRANS_CUR, ABSTRACT_NO, ABSTRACT_CONTENT, TRANS_STATUS, 
+    AUDIT_STATUS, AUDIT_REMARK, SUBMIT_AUDITOR, AUDITOR, TRADE_NO, EXCEPTION_MSG, EXCEPTION_CODE, 
+    DATA_TYPE, CREATE_TIME, UPDATE_TIME, SEND_STATUS, IS_CAPITAL_CHANGE, RECEIVE_USERNAME, 
+    RECEIVE_ACCOUNT_NO, RECEIVE_BANK, RECEIVE_USEFOR, USER_ID, MERCHANT_ORDER_NO, SETTLE_SEQUENCE_NO, 
+    ACCOUNT_NO, ACCOUNT_NAME, CHANNEL_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from UCF_CHECK_BALANCE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from UCF_CHECK_BALANCE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ucf.checkbalance.pojo.UcfCheckBalance" >
+    insert into UCF_CHECK_BALANCE (ID, VOUCHER_NO, CHECK_BALANCE_TYPE, 
+      ACCOUNT_TYPE, MERCHANT_ID, TRANS_AMOUNT, 
+      OUT_ORDER_NO, SEQ_NO, REMARK, 
+      SENIOR_PRODUCT_CODE, TRANS_CUR, ABSTRACT_NO, 
+      ABSTRACT_CONTENT, TRANS_STATUS, AUDIT_STATUS, 
+      AUDIT_REMARK, SUBMIT_AUDITOR, AUDITOR, 
+      TRADE_NO, EXCEPTION_MSG, EXCEPTION_CODE, 
+      DATA_TYPE, CREATE_TIME, UPDATE_TIME, 
+      SEND_STATUS, IS_CAPITAL_CHANGE, RECEIVE_USERNAME, 
+      RECEIVE_ACCOUNT_NO, RECEIVE_BANK, RECEIVE_USEFOR, 
+      USER_ID, MERCHANT_ORDER_NO, SETTLE_SEQUENCE_NO, 
+      ACCOUNT_NO, ACCOUNT_NAME, CHANNEL_CODE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{voucherNo,jdbcType=VARCHAR}, #{checkBalanceType,jdbcType=VARCHAR}, 
+      #{accountType,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{transAmount,jdbcType=DECIMAL}, 
+      #{outOrderNo,jdbcType=VARCHAR}, #{seqNo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{seniorProductCode,jdbcType=VARCHAR}, #{transCur,jdbcType=VARCHAR}, #{abstractNo,jdbcType=VARCHAR}, 
+      #{abstractContent,jdbcType=VARCHAR}, #{transStatus,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, 
+      #{auditRemark,jdbcType=VARCHAR}, #{submitAuditor,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, 
+      #{tradeNo,jdbcType=VARCHAR}, #{exceptionMsg,jdbcType=VARCHAR}, #{exceptionCode,jdbcType=VARCHAR}, 
+      #{dataType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{sendStatus,jdbcType=VARCHAR}, #{isCapitalChange,jdbcType=VARCHAR}, #{receiveUsername,jdbcType=VARCHAR}, 
+      #{receiveAccountNo,jdbcType=VARCHAR}, #{receiveBank,jdbcType=VARCHAR}, #{receiveUsefor,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{merchantOrderNo,jdbcType=VARCHAR}, #{settleSequenceNo,jdbcType=VARCHAR}, 
+      #{accountNo,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, #{channelCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ucf.checkbalance.pojo.UcfCheckBalance" >
+    insert into UCF_CHECK_BALANCE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="voucherNo != null" >
+        VOUCHER_NO,
+      </if>
+      <if test="checkBalanceType != null" >
+        CHECK_BALANCE_TYPE,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="merchantId != null" >
+        MERCHANT_ID,
+      </if>
+      <if test="transAmount != null" >
+        TRANS_AMOUNT,
+      </if>
+      <if test="outOrderNo != null" >
+        OUT_ORDER_NO,
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="seniorProductCode != null" >
+        SENIOR_PRODUCT_CODE,
+      </if>
+      <if test="transCur != null" >
+        TRANS_CUR,
+      </if>
+      <if test="abstractNo != null" >
+        ABSTRACT_NO,
+      </if>
+      <if test="abstractContent != null" >
+        ABSTRACT_CONTENT,
+      </if>
+      <if test="transStatus != null" >
+        TRANS_STATUS,
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS,
+      </if>
+      <if test="auditRemark != null" >
+        AUDIT_REMARK,
+      </if>
+      <if test="submitAuditor != null" >
+        SUBMIT_AUDITOR,
+      </if>
+      <if test="auditor != null" >
+        AUDITOR,
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO,
+      </if>
+      <if test="exceptionMsg != null" >
+        EXCEPTION_MSG,
+      </if>
+      <if test="exceptionCode != null" >
+        EXCEPTION_CODE,
+      </if>
+      <if test="dataType != null" >
+        DATA_TYPE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="sendStatus != null" >
+        SEND_STATUS,
+      </if>
+      <if test="isCapitalChange != null" >
+        IS_CAPITAL_CHANGE,
+      </if>
+      <if test="receiveUsername != null" >
+        RECEIVE_USERNAME,
+      </if>
+      <if test="receiveAccountNo != null" >
+        RECEIVE_ACCOUNT_NO,
+      </if>
+      <if test="receiveBank != null" >
+        RECEIVE_BANK,
+      </if>
+      <if test="receiveUsefor != null" >
+        RECEIVE_USEFOR,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="merchantOrderNo != null" >
+        MERCHANT_ORDER_NO,
+      </if>
+      <if test="settleSequenceNo != null" >
+        SETTLE_SEQUENCE_NO,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="accountName != null" >
+        ACCOUNT_NAME,
+      </if>
+      <if test="channelCode != null" >
+        CHANNEL_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherNo != null" >
+        #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkBalanceType != null" >
+        #{checkBalanceType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null" >
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="transAmount != null" >
+        #{transAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="outOrderNo != null" >
+        #{outOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="seniorProductCode != null" >
+        #{seniorProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transCur != null" >
+        #{transCur,jdbcType=VARCHAR},
+      </if>
+      <if test="abstractNo != null" >
+        #{abstractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="abstractContent != null" >
+        #{abstractContent,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null" >
+        #{transStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditRemark != null" >
+        #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="submitAuditor != null" >
+        #{submitAuditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionMsg != null" >
+        #{exceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionCode != null" >
+        #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null" >
+        #{dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendStatus != null" >
+        #{sendStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isCapitalChange != null" >
+        #{isCapitalChange,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveUsername != null" >
+        #{receiveUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveAccountNo != null" >
+        #{receiveAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveBank != null" >
+        #{receiveBank,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveUsefor != null" >
+        #{receiveUsefor,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantOrderNo != null" >
+        #{merchantOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settleSequenceNo != null" >
+        #{settleSequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null" >
+        #{channelCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ucf.checkbalance.pojo.UcfCheckBalance" >
+    update UCF_CHECK_BALANCE
+    <set >
+      <if test="voucherNo != null" >
+        VOUCHER_NO = #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkBalanceType != null" >
+        CHECK_BALANCE_TYPE = #{checkBalanceType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null" >
+        MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="transAmount != null" >
+        TRANS_AMOUNT = #{transAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="outOrderNo != null" >
+        OUT_ORDER_NO = #{outOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        SEQ_NO = #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="seniorProductCode != null" >
+        SENIOR_PRODUCT_CODE = #{seniorProductCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transCur != null" >
+        TRANS_CUR = #{transCur,jdbcType=VARCHAR},
+      </if>
+      <if test="abstractNo != null" >
+        ABSTRACT_NO = #{abstractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="abstractContent != null" >
+        ABSTRACT_CONTENT = #{abstractContent,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null" >
+        TRANS_STATUS = #{transStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditRemark != null" >
+        AUDIT_REMARK = #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="submitAuditor != null" >
+        SUBMIT_AUDITOR = #{submitAuditor,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null" >
+        AUDITOR = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionMsg != null" >
+        EXCEPTION_MSG = #{exceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionCode != null" >
+        EXCEPTION_CODE = #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null" >
+        DATA_TYPE = #{dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendStatus != null" >
+        SEND_STATUS = #{sendStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isCapitalChange != null" >
+        IS_CAPITAL_CHANGE = #{isCapitalChange,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveUsername != null" >
+        RECEIVE_USERNAME = #{receiveUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveAccountNo != null" >
+        RECEIVE_ACCOUNT_NO = #{receiveAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveBank != null" >
+        RECEIVE_BANK = #{receiveBank,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveUsefor != null" >
+        RECEIVE_USEFOR = #{receiveUsefor,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantOrderNo != null" >
+        MERCHANT_ORDER_NO = #{merchantOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settleSequenceNo != null" >
+        SETTLE_SEQUENCE_NO = #{settleSequenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null" >
+        CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ucf.checkbalance.pojo.UcfCheckBalance" >
+    update UCF_CHECK_BALANCE
+    set VOUCHER_NO = #{voucherNo,jdbcType=VARCHAR},
+      CHECK_BALANCE_TYPE = #{checkBalanceType,jdbcType=VARCHAR},
+      ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TRANS_AMOUNT = #{transAmount,jdbcType=DECIMAL},
+      OUT_ORDER_NO = #{outOrderNo,jdbcType=VARCHAR},
+      SEQ_NO = #{seqNo,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      SENIOR_PRODUCT_CODE = #{seniorProductCode,jdbcType=VARCHAR},
+      TRANS_CUR = #{transCur,jdbcType=VARCHAR},
+      ABSTRACT_NO = #{abstractNo,jdbcType=VARCHAR},
+      ABSTRACT_CONTENT = #{abstractContent,jdbcType=VARCHAR},
+      TRANS_STATUS = #{transStatus,jdbcType=VARCHAR},
+      AUDIT_STATUS = #{auditStatus,jdbcType=VARCHAR},
+      AUDIT_REMARK = #{auditRemark,jdbcType=VARCHAR},
+      SUBMIT_AUDITOR = #{submitAuditor,jdbcType=VARCHAR},
+      AUDITOR = #{auditor,jdbcType=VARCHAR},
+      TRADE_NO = #{tradeNo,jdbcType=VARCHAR},
+      EXCEPTION_MSG = #{exceptionMsg,jdbcType=VARCHAR},
+      EXCEPTION_CODE = #{exceptionCode,jdbcType=VARCHAR},
+      DATA_TYPE = #{dataType,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      SEND_STATUS = #{sendStatus,jdbcType=VARCHAR},
+      IS_CAPITAL_CHANGE = #{isCapitalChange,jdbcType=VARCHAR},
+      RECEIVE_USERNAME = #{receiveUsername,jdbcType=VARCHAR},
+      RECEIVE_ACCOUNT_NO = #{receiveAccountNo,jdbcType=VARCHAR},
+      RECEIVE_BANK = #{receiveBank,jdbcType=VARCHAR},
+      RECEIVE_USEFOR = #{receiveUsefor,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      MERCHANT_ORDER_NO = #{merchantOrderNo,jdbcType=VARCHAR},
+      SETTLE_SEQUENCE_NO = #{settleSequenceNo,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

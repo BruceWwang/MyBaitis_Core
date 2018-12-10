@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+ PUBLIC " -//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry location="E:/generator/ojdbc14-1.0.jar" />
+	<context id="my" targetRuntime="MyBatis3">
+		<!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 这里的type里写的是你的实现类的类全路径 -->
+        <commentGenerator type="org.mybatis.generator.MyCommentGenerator"></commentGenerator>
+		<!-- <commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator> -->
+		<!-- oracle数据库连接 -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.20.70.201:1521:xfdb" userId="checkbalance" password="checkbalance" >
+			<!-- 针对oracle数据库 -->
+            <property name="remarksReporting" value="true"></property>
+        </jdbcConnection>
+        <!-- mysql配置 -->
+        <!--   <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                  connectionURL="jdbc:mysql://localhost:3306/bookshop" userId="root"
+                  password="root">
+                    针对mysql数据库
+                    <property name="useInformationSchema" value="true"></property>
+          </jdbcConnection> -->
+		<!-- 生成model实体类文件位置 -->
+		<javaModelGenerator
+			targetPackage="com.ucf.checkbalance.pojo"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成mapper.xml配置文件位置 -->
+		<sqlMapGenerator
+			targetPackage="mapper"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 生成mapper接口文件位置 -->
+		<javaClientGenerator
+			targetPackage="com.ucf.checkbalance.dao"
+			targetProject="src/main/java"
+			type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 需要生成的实体类对应的表名，多个实体类复制多份该配置即可 -->
+		<table tableName="UCF_CHECK_BALANCE" domainObjectName="UcfCheckBalance"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+	</context>
+</generatorConfiguration>
