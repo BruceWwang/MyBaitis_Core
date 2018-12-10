@@ -16,35 +16,34 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 
 /**
  * 描述：
+ * 
  * @since 1.9.10
  * @version 1.9.10
- * @作者：BruceWang
- * @创建时间：2018年09月10日
- * @修改记录：
+ * @作者：BruceWang @创建时间：2018年09月10日 @修改记录：
  */
 public class StartUp {
-	
-    public static void main(String[] args) throws URISyntaxException {
-        try {
-            List<String> warnings = new ArrayList<String>();
-            boolean overwrite = true;
-            ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-            InputStream is = classloader.getResourceAsStream("generatorConfig.xml");
-            ConfigurationParser cp = new ConfigurationParser(warnings);
-            Configuration config = cp.parseConfiguration(is);
-            DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-            MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-            myBatisGenerator.generate(null);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (InvalidConfigurationException e) {
-            e.printStackTrace();
-        } catch (XMLParserException e) {
-            e.printStackTrace();
-        }
-    }
+
+	public static void main(String[] args) throws URISyntaxException {
+		try {
+			List<String> warnings = new ArrayList<String>();
+			boolean overwrite = true;
+			ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+			InputStream is = classloader.getResourceAsStream("generatorConfig.xml");
+			ConfigurationParser cp = new ConfigurationParser(warnings);
+			Configuration config = cp.parseConfiguration(is);
+			DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+			MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+			myBatisGenerator.generate(null);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (InvalidConfigurationException e) {
+			e.printStackTrace();
+		} catch (XMLParserException e) {
+			e.printStackTrace();
+		}
+	}
 }
